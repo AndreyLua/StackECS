@@ -21,6 +21,7 @@ public class ItemConsumersInitSystem : IEcsInitSystem
             consumer.Replace(model).Replace(stackHolder);
 
             Item item = _itemFactory.SpawnItem(model.Transform.position);
+            ItemCollectorExtensions.CollectItem(item, stackHolder, _stackRepository);
             _stackRepository.AddElement(stackHolder, item);
         }
     }
